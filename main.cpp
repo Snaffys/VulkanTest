@@ -1,7 +1,17 @@
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 
+#ifdef _WIN32
+    #define GLFW_EXPOSE_NATIVE_WIN32
+    #include <GLFW/glfw3native.h>
+    #define _CRT_SECURE_NO_WARNINGS
+#elif __linux__
+    // Linux-specific includes
+    #include <dlfcn.h>
+#endif
+
 #include <iostream>
+#include <cstring>
 #include <stdexcept>
 #include <cstdlib>
 #include <vector>
