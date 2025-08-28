@@ -448,7 +448,7 @@ private:
     }
 
     VkExtent2D chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities) {
-        if (capabilities.currentExtent.width != std::numeric_limits<uint32_t>::max()) { // if platform requires fixed size (mobile/fullscrean platforms)
+        if (capabilities.currentExtent.width != (std::numeric_limits<uint32_t>::max)()) { // if platform requires fixed size (mobile/fullscrean platforms)
             return capabilities.currentExtent;
         }
         else {
